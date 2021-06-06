@@ -32,7 +32,7 @@ function scrape(subreddit, upvotethreshold) {
                   console.log('Scraping... ' + p.name + ' | ' + p.url);
                   https.get(p.url, response => {
                     response.pipe(require('fs').createWriteStream('./' + subreddit + '/' + p.name + get_extension(p.url)));
-                  });
+                  }).catch(err => 1 + 1);
                 }
               } else {
                 dupes = true;
